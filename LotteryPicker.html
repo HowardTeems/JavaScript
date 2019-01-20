@@ -4,16 +4,17 @@
 		<title>12 sets of 6 random numbers for lottery</title>
 	</head>
 	<body>
-<p>Click the button to draw the numbers.</p>
+		<p>Click the button to draw the numbers.</p>
 
-<button onclick="lotteryPicker()">DRAW</button>
+		<button onclick="lotteryPicker()">DRAW</button>
 		
 		<script>
 			function lotteryPicker() {
 				
+				var strout = '';
 				for (var iset=1; iset<=12; iset++) {
-					var n = new Array(6);
 
+					var n = new Array(6);
 					for ( var i=0; i<6; i++ ) n[i]="";
 
 					while ( n[5]=="" ) {
@@ -32,10 +33,13 @@
 							if (n[5] == "" && j!=n[0] && j!=n[1] && j!=n[2] && j!=n[3] && j!=n[4]) n[5] = j;
 					}
 
-					document.open;
-					document.write('<h1>' + iset + '. ' + n[0] + ' ' + n[1] + ' ' + n[2] + ' ' + n[3] + ' ' + n[4] + ' ' + n[5] + '</h1><br>\');
-					document.close;
+					var str1 = '<h1>' + iset + '. ' + n[0] + ' ' + n[1] + ' ' + n[2] + ' ' + n[3] + ' ' + n[4] + ' ' + n[5] + '</h1>\n';
+					strout += str1;
 				}
+				
+				document.open;
+				document.write(strout);
+				document.close;				
 
 			}
 		</script>		
