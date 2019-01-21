@@ -1,18 +1,28 @@
 <!Doctype html>
 <html>
 	<head>
-		<title>12 sets of 6 random numbers for lottery</title>
+		<title>Sets of 6 random numbers for lottery</title>
 	</head>
 	<body>
+		<p>Enter how many lottery tickets you want:</p>
+		<form name="frm">
+			<input type="text" name="nsets">
+		</form>
+		
 		<p>Click the button to draw the numbers.</p>
-
 		<button onclick="lotteryPicker()">DRAW</button>
 		
 		<script>
 			function lotteryPicker() {
+			
+				var nset = document.frm.nsets.value;
+				if (isNaN(nset)) {
+					alert("Value is not a number--please re-enter!");
+					return;
+				}					
 				
 				var strout = '';
-				for (var iset=1; iset<=12; iset++) {
+				for (var iset=1; iset<=nset; iset++) {
 
 					var n = new Array(6);
 					for ( var i=0; i<6; i++ ) n[i]="";
